@@ -1,0 +1,5 @@
+FROM centos:7
+USER 0
+RUN yum install -y centos-release-scl
+RUN yum install -y devtoolset-8
+ENTRYPOINT scl enable devtoolset-8 bash

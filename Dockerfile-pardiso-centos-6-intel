@@ -1,0 +1,10 @@
+FROM centos:6
+USER 0
+COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
+COPY epel.repo /etc/yum.repos.d/epel.repo
+COPY CentOS-SCLo-scl.repo /etc/yum.repos.d/CentOS-SCLo-scl.repo
+COPY CentOS-SCLo-scl-rh.repo /etc/yum.repos.d/CentOS-SCLo-scl-rh.repo
+RUN yum upgrade -y
+RUN yum install -y centos-release-scl
+RUN yum install -y devtoolset-8
+ENTRYPOINT scl enable devtoolset-8 bash

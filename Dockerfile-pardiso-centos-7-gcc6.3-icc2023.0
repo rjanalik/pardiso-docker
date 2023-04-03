@@ -1,0 +1,7 @@
+FROM centos/devtoolset-6-toolchain-centos7
+USER 0
+COPY oneAPI.repo /etc/yum.repos.d/
+RUN yum install -y make intel-hpckit
+RUN ln -s /opt/intel/oneapi/setvars.sh /etc/profile.d/oneAPI-setvars.sh
+#CMD ["/bin/bash"]
+CMD /bin/bash -l
